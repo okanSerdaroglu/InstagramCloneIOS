@@ -10,11 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var textFieldPassword: UITextField!
+    @IBOutlet weak var textFieldUserName: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
 
+    @IBAction func buttonSignUp(_ sender: Any) {
+    }
+    @IBAction func buttonSignIn(_ sender: Any) {
+        performSegue(withIdentifier: "toFeedVC", sender: nil)
+    }
 }
 
