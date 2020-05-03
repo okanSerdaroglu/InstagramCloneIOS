@@ -10,14 +10,14 @@
         <!--Upload-->
         <scene sceneID="UVg-jg-rfb">
             <objects>
-                <viewController id="XJP-3R-aiB" sceneMemberID="viewController">
+                <viewController id="XJP-3R-aiB" customClass="UploadViewController" customModule="InstagramCloneIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d1G-eH-lim">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="AhI-79-ued"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Upload" id="F87-MP-YC1"/>
+                    <tabBarItem key="tabBarItem" title="Upload" image="u.circle" catalog="system" id="F87-MP-YC1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MoX-BF-xjt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -26,18 +26,47 @@
         <!--Feed-->
         <scene sceneID="Pb2-AM-Yzw">
             <objects>
-                <viewController id="GMr-Ls-EBE" sceneMemberID="viewController">
+                <viewController id="GMr-Ls-EBE" customClass="FeedViewController" customModule="InstagramCloneIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cp6-VQ-BXX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="7iS-P3-UrM"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Feed" id="vb1-EY-Zrq"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="f.circle" catalog="system" id="vb1-EY-Zrq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fIf-Sy-uN1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-339" y="-385"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="SIc-E6-dZs">
+            <objects>
+                <viewController id="YoT-5B-wzh" customClass="SettingsViewController" customModule="InstagramCloneIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DYw-c2-Y15">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbP-id-L1q">
+                                <rect key="frame" x="97" y="404" width="221" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="buttonSettings:" destination="YoT-5B-wzh" eventType="touchUpInside" id="hBu-6t-eEp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="u33-75-0Km"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="s.circle" catalog="system" id="A8S-Uf-0wH"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toLoginVC" modalPresentationStyle="fullScreen" id="f4c-0u-vuH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BYQ-Uw-z5e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-339.13043478260875" y="956.91964285714278"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="RIh-Rh-tED">
@@ -52,6 +81,7 @@
                     <connections>
                         <segue destination="GMr-Ls-EBE" kind="relationship" relationship="viewControllers" id="5sx-Kb-utY"/>
                         <segue destination="XJP-3R-aiB" kind="relationship" relationship="viewControllers" id="VlG-9r-QlZ"/>
+                        <segue destination="YoT-5B-wzh" kind="relationship" relationship="viewControllers" id="Dyd-DC-idq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r3o-vo-4l7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -66,8 +96,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nj8-Ct-sZX">
-                                <rect key="frame" x="40" y="425" width="92" height="47"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nj8-Ct-sZX">
+                                <rect key="frame" x="40" y="424" width="92" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="92" id="gDu-KG-OOL"/>
                                 </constraints>
@@ -76,8 +106,8 @@
                                     <action selector="buttonSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DQ0-gg-XzL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPH-4z-AI8">
-                                <rect key="frame" x="262" y="425" width="92" height="47"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPH-4z-AI8">
+                                <rect key="frame" x="262" y="424" width="92" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="92" id="krD-VU-UFv"/>
                                 </constraints>
@@ -86,12 +116,12 @@
                                     <action selector="buttonSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KXe-ea-IZ0"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8MK-Cn-cRb">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8MK-Cn-cRb">
                                 <rect key="frame" x="82" y="290" width="250" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q6y-OS-QtS">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q6y-OS-QtS">
                                 <rect key="frame" x="82" y="216" width="250" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -126,6 +156,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="tVw-PO-gpI"/>
                     <connections>
                         <outlet property="textFieldPassword" destination="8MK-Cn-cRb" id="23z-tt-VB2"/>
                         <outlet property="textFieldUserName" destination="q6y-OS-QtS" id="qnU-VA-fsM"/>
@@ -137,4 +168,9 @@
             <point key="canvasLocation" x="-2365.217391304348" y="-62.276785714285708"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="f.circle" catalog="system" width="128" height="121"/>
+        <image name="s.circle" catalog="system" width="128" height="121"/>
+        <image name="u.circle" catalog="system" width="128" height="121"/>
+    </resources>
 </document>
