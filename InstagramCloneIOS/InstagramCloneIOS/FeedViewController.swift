@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SDWebImage
 
 class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
@@ -26,18 +27,14 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func getDataFromFireStore(){
         
         let fireStoreDatabase = Firestore.firestore()
-        
-        /*let settings = fireStoreDatabase.settings
-        settings.areTimestampsInSnapshotsEnabled = true
-        fireStoreDatabase.settings = settings*/
-        
+
         fireStoreDatabase.collection("Posts").addSnapshotListener { (snapshot, error) in
             
             if error != nil {
                 print(error?.localizedDescription as Any)
             } else {
                 if snapshot?.isEmpty != true && snapshot != nil {
-                    self.postList.removeAll(keepingCapacity: true)
+                    self.postList.removeAll(keepingCapacity: false)
                     for document in snapshot!.documents{
                         let post = Post()
                         post.date = document.get("date") as? String
@@ -68,8 +65,7 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.labelComment.text = post.postComment ?? ""
         cell.labelUserEmail.text = post.postedBy ?? ""
         cell.labelLike.text = String(post.likes ?? 0)
-        
-        
+        cell.imageViewUser.sd_setImage(with: URL(string:post.imageUrl!))
         return cell
     }
     
