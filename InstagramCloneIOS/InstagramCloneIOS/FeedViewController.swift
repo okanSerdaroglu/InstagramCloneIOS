@@ -28,7 +28,9 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         let fireStoreDatabase = Firestore.firestore()
 
-        fireStoreDatabase.collection("Posts").addSnapshotListener { (snapshot, error) in
+        fireStoreDatabase.collection("Posts")
+            .order(by:"date", descending: true)
+            .addSnapshotListener { (snapshot, error) in
             
             if error != nil {
                 print(error?.localizedDescription as Any)
@@ -42,6 +44,7 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                         post.likes = document.get("likes") as? Int
                         post.postComment = document.get("postComment") as? String
                         post.postedBy = document.get("postedBy") as? String
+                        post.documentID = document.documentID
                         self.postList.append(post)
                         
                     }
@@ -66,6 +69,7 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.labelUserEmail.text = post.postedBy ?? ""
         cell.labelLike.text = String(post.likes ?? 0)
         cell.imageViewUser.sd_setImage(with: URL(string:post.imageUrl!))
+        cell.documentID = post.documentID
         return cell
     }
     

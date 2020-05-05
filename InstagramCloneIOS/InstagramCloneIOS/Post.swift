@@ -14,6 +14,7 @@ class Post  {
     var likes : Int?
     var postComment : String?
     var postedBy : String?
+    var documentID : String?
     
     
 }
